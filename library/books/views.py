@@ -16,7 +16,6 @@ class BooksDetailsListViewset(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         try:
-            import pdb; pdb.set_trace()
             q = Q()
             limit = request.GET.get('limit')
             qs = self.get_queryset().order_by('-book__download_count')

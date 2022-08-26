@@ -11,12 +11,12 @@ class BooksDetailsSerializer(serializers.ModelSerializer):
     bookshelf = serializers.SerializerMethodField()
     subject = serializers.SerializerMethodField()
     genre = serializers.SerializerMethodField()
-    gid = serializers.SerializerMethodField()
+    gutenberg_id = serializers.SerializerMethodField()
 
     def get_book_title(self, obj):
         return obj.book.title
 
-    def get_gid(self, obj):
+    def get_gutenberg_id(self, obj):
         return obj.book.gutenberg_id
         
     def get_author(self, obj):
@@ -59,5 +59,5 @@ class BooksDetailsSerializer(serializers.ModelSerializer):
         model = BooksBookAuthors
         fields = (
             'id','book_title', 'author', 'genre', 'language',
-            'subject', 'bookshelf', 'mime_type', 'gid'
+            'subject', 'bookshelf', 'mime_type', 'gutenberg_id'
             )
